@@ -1,0 +1,29 @@
+{
+  "name": "redux-training",
+  "version": "0.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "axios": "^0.12.0",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "babel-preset-stage-2": "*",
+    "react": "*",
+    "react-dom": "*",
+    "redux": "*",
+    "redux-logger": "*",
+    "redux-promise-middleware": "*",
+    "redux-thunk": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack-dev-server --inline --hot",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
