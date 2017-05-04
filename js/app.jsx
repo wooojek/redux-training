@@ -1,15 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import { combineReducers, createStore } from 'redux';
-
-import userReducer from './reducers/userReducer.jsx';
-import ageReducer from './reducers/ageReducer.jsx';
-
-const reducers = combineReducers({
-    user: userReducer,
-    age: ageReducer,
-})
+import { createStore } from 'redux';
+import reducers from './reducers/combinedReducers.jsx';
 
 const store = createStore(reducers);
 
