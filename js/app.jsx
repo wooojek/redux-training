@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { applyMiddleware, createStore } from 'redux';
 import reducers from './reducers/combinedReducers.jsx';
-import logger from './middlewares/logger.jsx';
+import logger from 'redux-logger';
 import error from './middlewares/error.jsx';
 
 const middleware = applyMiddleware(logger, error);
@@ -14,7 +14,6 @@ store.subscribe(() => {
 });
 
 store.dispatch({type: "INC"});
-store.dispatch({type: "DEC"});
 store.dispatch({type: "CHANGE_NAME", payload: "Henryk"});
 store.dispatch({type: "E"});
 
