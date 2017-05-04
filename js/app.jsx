@@ -1,21 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { applyMiddleware, createStore } from 'redux';
+import axios from 'axios';
 import reducers from './reducers/combinedReducers.jsx';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 import error from './middlewares/error.jsx';
 
-const middleware = applyMiddleware(logger, error);
+const middleware = applyMiddleware(thunk, logger, error);
 
-const store = createStore(reducers, {}, middleware);
+const store = createStore(reducers, middleware);
 
 store.subscribe(() => {
     console.log("store changed", store.getState());
 });
 
-store.dispatch({type: "INC"});
-store.dispatch({type: "CHANGE_NAME", payload: "Henryk"});
-store.dispatch({type: "E"});
+// store.dispatch({type: "INC"});
+// store.dispatch({type: "CHANGE_NAME", payload: "Henryk"});
+// store.dispatch({type: "E"});
+// store.dispatch((dispatch) => {
+//     dispatch({type: 'DEC'});
+//     //async
+//     dispatch({type: 'CHANGE_TOWN', payload: 'Warsaw'});
+// });
+store.dispatch((dispatch) => {
+    dispatch({type: 'FETCH_USERS_START'});
+    axios.get("http://rest.learncode.academy/api/wstern/users")
+        .then((respone) => {
+            dispatch({type: 'RECEIVE_USERS', payload: respone.data})
+        })
+        .catch((err)=> {
+            dispatch({type: "E", payload: err})
+        });
+});
 
 
 document.addEventListener("DOMContentLoaded", function(){

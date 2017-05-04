@@ -10,7 +10,7 @@ const userReducer = (state={name: "Will", town: "New York"}, action) => {
             break;
         }
         case 'E': {
-            throw new Error("aaaaa!");
+            throw new Error("aaaaa!", action.payload);
         }
     }
 
