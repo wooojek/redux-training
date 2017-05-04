@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
+import App from './components/Layout.jsx';
+
 import axios from 'axios';
 
 import store from './store.jsx';
@@ -30,24 +34,18 @@ store.subscribe(() => {
 // });
 
 
-store.dispatch({
-    type: 'FETCH_USERS',
-    payload: axios.get("http://rest.learncode.academy/api/wstern/users"),
-        });
+// store.dispatch({
+//     type: 'FETCH_USERS',
+//     payload: axios.get("http://rest.learncode.academy/api/wstern/users"),
+//         });
 
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    class App extends React.Component {
-        render() {
-            return <div>
-                    Hello
-                </div>
-        }
-    }
-
     ReactDOM.render(
-        <App />,
+        <Provider store={store}>
+            <App />
+        </Provider>,
         document.getElementById('app')
     );
 
