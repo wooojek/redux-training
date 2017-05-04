@@ -9,6 +9,9 @@ const userReducer = (state={name: "Will", town: "New York"}, action) => {
             state = {...state, town: action.payload};
             break;
         }
+        case 'E': {
+            throw new Error("aaaaa!");
+        }
     }
 
     return state;

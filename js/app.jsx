@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import reducers from './reducers/combinedReducers.jsx';
+import logger from './middlewares/logger.jsx';
+import error from './middlewares/error.jsx';
 
-const store = createStore(reducers);
+const middleware = applyMiddleware(logger, error);
+
+const store = createStore(reducers, {}, middleware);
 
 store.subscribe(() => {
     console.log("store changed", store.getState());
 });
 
-store.dispatch({type: "INC", payload: 1});
-store.dispatch({type: "DEC", payload: 1});
+store.dispatch({type: "INC"});
+store.dispatch({type: "DEC"});
 store.dispatch({type: "CHANGE_NAME", payload: "Henryk"});
+store.dispatch({type: "E"});
 
 
 document.addEventListener("DOMContentLoaded", function(){
