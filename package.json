@@ -10,6 +10,7 @@
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
     "babel-preset-stage-2": "*",
+    "firebase": "^3.9.0",
     "react": "*",
     "react-dom": "*",
     "react-redux": "^5.0.4",

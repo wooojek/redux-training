@@ -12,33 +12,6 @@ store.subscribe(() => {
     console.log("store changed", store.getState());
 });
 
-// store.dispatch({type: "INC"});
-// store.dispatch({type: "CHANGE_NAME", payload: "Henryk"});
-// store.dispatch({type: "E"});
-// store.dispatch((dispatch) => {
-//     dispatch({type: 'DEC'});
-//     //async
-//     dispatch({type: 'CHANGE_TOWN', payload: 'Warsaw'});
-// });
-
-
-// store.dispatch((dispatch) => {
-//     dispatch({type: 'FETCH_USERS_START'});
-//     axios.get("http://rest.learncode.academy/api/wstern/users")
-//         .then((respone) => {
-//             dispatch({type: 'RECEIVE_USERS', payload: respone.data})
-//         })
-//         .catch((err)=> {
-//             dispatch({type: "E", payload: err})
-//         });
-// });
-
-
-// store.dispatch({
-//     type: 'FETCH_USERS',
-//     payload: axios.get("http://rest.learncode.academy/api/wstern/users"),
-//         });
-
 
 document.addEventListener("DOMContentLoaded", function(){
 
