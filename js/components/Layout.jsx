@@ -2,19 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
+import { fetchData } from '../actions/index.js'; 
 
 @connect((store) => {
-    return {
-        user: store.user.name,
-    };
+    return store;
 })
 class App extends React.Component {
 
     componentWillMount() {
-        this.props.fetchData();
+        console.log(this.props.data);
     }
     render() {
-        console.log(this.props);
         return <div>
                 Hello
             </div>;

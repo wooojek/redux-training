@@ -1,4 +1,4 @@
-const userReducer = (state={name: "Will", town: "New York"}, action) => {
+const userReducer = (state={}, action) => {
     switch (action.type) {
         case 'CHANGE_NAME': {
             state = {...state, name: action.payload};
