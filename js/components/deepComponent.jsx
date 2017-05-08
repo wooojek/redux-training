@@ -3,22 +3,23 @@ import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 
-import Middle from './middleComp.jsx';
-
 @connect((store) => {
     return {
         user: store.user,
         data: store.data,
     };
 }, actions)
-class App extends React.Component {
+class Deep extends React.Component {
 
     componentWillMount() {
         console.log(this.props.data);
+        this.props.fetchData();
     }
     render() {
-        return <Middle/>;
+        return <div>
+                Hello
+            </div>;
     }
 }
 
-export default App;
+export default Deep;
