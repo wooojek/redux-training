@@ -10,7 +10,7 @@ const config = {
   };
 firebase.initializeApp(config);
 
-const Data = firebase.database();
+const Data = firebase.database().ref().child('name');
 
 export function fetchData() {
   return dispatch => {
@@ -19,7 +19,6 @@ export function fetchData() {
         type: 'FETCH_DATA',
         payload: snapshot.val(),
       });
-      console.log(snapshot.val());
     });
   };
 }

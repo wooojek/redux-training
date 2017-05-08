@@ -1,4 +1,4 @@
-const dataReducer = (state={data: 'LoL'}, action) => {
+const dataReducer = (state={}, action) => {
     switch (action.type) {
         case 'FETCH_DATA': {
             state = {...state, data: action.payload};
